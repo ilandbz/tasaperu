@@ -2,55 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * Show the form for creating the resource.
-     */
-    public function create(): never
+    public function getUserData(Request $request)
     {
-        abort(404);
-    }
+        $user_id = auth()->user()->id;
 
-    /**
-     * Store the newly created resource in storage.
-     */
-    public function store(Request $request): never
-    {
-        abort(404);
-    }
+        $user = User::with('role')->findOrFail($user_id);
 
-    /**
-     * Display the resource.
-     */
-    public function show()
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the resource.
-     */
-    public function edit()
-    {
-        //
-    }
-
-    /**
-     * Update the resource in storage.
-     */
-    public function update(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Remove the resource from storage.
-     */
-    public function destroy(): never
-    {
-        abort(404);
+        return response()->json([
+            'id' => $user->id,
+            'name' => $user->name,
+            'dni' => $user->dni,
+            'role' => $user->role ? [
+                'id' => $user->role->id,
+                'name' => $user->role->name,
+            ] : null,
+        ]);
     }
 }
