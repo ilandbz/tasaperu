@@ -23,7 +23,7 @@ class ProductoController extends Controller
             'monto_minimo','monto_maximo',
             'plazo_minimo_meses','plazo_maximo_meses',
             'tea_minimo','tea_maximo',
-            'tcea_referencial','tcea_minima',
+            'tcea_referencial',
             'seguro_desgravamen_mensual','seguro_extra'
         ]);
 
