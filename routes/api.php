@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\BancoController;
 use App\Http\Controllers\PreguntaController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\SimuladorController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
