@@ -23,6 +23,7 @@ class User extends Authenticatable
         'name',
         'dni',
         'password',
+        'role_id',
     ];
 
     /**
@@ -50,4 +51,9 @@ class User extends Authenticatable
             'two_factor_confirmed_at' => 'datetime',
         ];
     }
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class, 'curso_id', 'id');
+    }
+
 }
