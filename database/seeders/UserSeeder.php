@@ -16,12 +16,20 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $superadmin = User::firstOrCreate([
-            'dni'       => '45532962',        
+            'dni'       => '00000000',        
         ],
         [
-            'name'      => 'admin',
-            'password'  => Hash::make('818949'),
+            'name'      => 'foro',
+            'password'  => Hash::make('tasaperu'),
             'role_id'   => Role::where('nombre', 'Super Usuario')->first()->id,
         ]);
+        // $superadmin = User::firstOrCreate([
+        //     'dni'       => '45532962',        
+        // ],
+        // [
+        //     'name'      => 'admin',
+        //     'password'  => Hash::make('818949'),
+        //     'role_id'   => Role::where('nombre', 'Super Usuario')->first()->id,
+        // ]);
     }
 }
