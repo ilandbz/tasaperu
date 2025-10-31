@@ -6,6 +6,11 @@ use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('bancos',          [BancoController::class, 'index']);
+Route::get('productos',       [ProductoController::class, 'index']); // ?banco_id=
+Route::get('simular',         [SimuladorController::class, 'simular']);
+
 // Rutas públicas
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/test', fn () => 'ok');
